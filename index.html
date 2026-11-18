@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Maintenance Requests - ICT251</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <h1>Campus Maintenance Requests</h1>
+      <p>Report and track campus infrastructure issues like electrical, plumbing, and furniture repairs.</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="#home">Home</a>
+      <a href="#manage">Manage Records</a>
+      <a href="#about">About</a>
+    </div>
+  </nav>
+
+  <main id="main-content" class="container">
+    <!-- Status Feedback Banner -->
+    <div id="status-message"></div>
+
+    <!-- Home / Overview Section -->
+    <section id="home" class="content-section">
+      <h2>System Overview</h2>
+      <p>Welcome to the Mulungushi University ICT251 Campus Maintenance tracking portal. Use this system to log service requests, track maintenance statuses, and filter active items across campus departments.</p>
+    </section>
+
+    <!-- Manage Records Section -->
+    <section id="manage" class="content-section">
+      <div class="grid-container">
+        <!-- Form Column -->
+        <div class="card form-card">
+          <h2 id="form-title">Add New Request</h2>
+          <form id="record-form">
+            <div class="form-group">
+              <label for="title-input">Title (3-80 chars):</label>
+              <input type="text" id="title-input" required minlength="3" maxlength="80" placeholder="e.g., Broken lecture hall door">
+            </div>
+
+            <div class="form-group">
+              <label for="category-input">Category:</label>
+              <input type="text" id="category-input" required minlength="2" maxlength="40" placeholder="e.g., Electrical, Plumbing, Furniture">
+            </div>
+
+            <div class="form-group">
+              <label for="description-input">Description (5-300 chars):</label>
+              <textarea id="description-input" required minlength="5" maxlength="300" rows="3" placeholder="Provide clear details about the issue..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="status-input">Status:</label>
+              <select id="status-input" required>
+                <option value="Pending">Pending</option>
+                <option value="In progress">In progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" id="save-btn" class="btn-primary">Add Record</button>
+              <button type="button" id="cancel-edit-btn" class="btn-secondary" style="display: none;">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Records List Column -->
+        <div class="card table-card">
+          <div class="table-controls">
+            <h2>Maintenance Records</h2>
+            <div class="filter-group">
+              <input type="text" id="search-input" placeholder="Search by title or category...">
+              <select id="status-filter">
+                <option value="">All Statuses</option>
+                <option value="Pending">Pending</option>
+                <option value="In progress">In progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+            <span id="record-count" class="record-count">Loading count...</span>
+          </div>
+
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="record-list">
+                <!-- Dynamically populated rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="content-section card">
+      <h2>About This Project</h2>
+      <p><strong>Project Name:</strong> ICT251 Campus Maintenance Frontend Web System</p>
+      <p><strong>Student Name:</strong> Pasche Simoonga</p>
+      <p><strong>Student Number:</strong> 202509024</p>
+      <p class="notice"><em>Note: This version uses browser demonstration data (localStorage) for record storage. Connected backend features will be introduced in subsequent project phases.</em></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Mulungushi University - Computer Science Department (ICT251)</p>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
